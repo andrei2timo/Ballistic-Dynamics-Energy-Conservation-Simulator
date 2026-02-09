@@ -7,18 +7,34 @@
 ## 📌 Project Architecture
 This repository hosts a sophisticated **Computational Physics** environment designed to simulate and analyze the motion of a mass point in a uniform gravitational field. Unlike basic animations, this tool employs **vectorized numerical integration** via NumPy to handle complex motion datasets.
 
-
-
 ## 🧬 Scientific & Mathematical Framework
-The simulation strictly adheres to the principles of **Classical Mechanics**. The application transition between different coordinate systems to validate the motion:
+The simulation strictly adheres to the principles of **Classical Mechanics**, employing a multi-layered mathematical approach to validate the projectile's behavior:
 
-* **Kinematic State Vectors**: The system tracks the state vector $S = [x, y, v_x, v_y]$ at every time step $\Delta t$.
-* **The Trajectory Parabola**: Explicit implementation of the time-independent Cartesian equation:
-  $$y(x) = x \tan(\alpha) - \frac{g}{2v_0^2 \cos^2(\alpha)} x^2$$
-* **Work-Energy Theorem**: Verification of the Mechanical Energy Conservation Law:
-  $$\Delta E = E_{k(f)} + E_{p(f)} - (E_{k(i)} + E_{p(i)}) = 0$$
+### I. Kinematic State Evolution
+The system propagates the state vector $\mathbf{S}$ through time $t$ using discretized kinematic equations. This represents the temporal evolution of the particle within the 2D Cartesian plane:
+
+$$
+\mathbf{S}(t) = \begin{bmatrix} x(t) \\ y(t) \\ v_x(t) \\ v_y(t) \end{bmatrix} = \begin{bmatrix} v_0 \cos(\alpha)t \\ v_0 \sin(\alpha)t - \frac{1}{2}gt^2 \\ v_0 \cos(\alpha) \\ v_0 \sin(\alpha) - gt \end{bmatrix}
+$$
 
 
+
+### II. Geometric Path (The Trajectory Parabola)
+By eliminating the time parameter $t$ from the system, the simulation validates the spatial path via the time-independent Cartesian equation, proving the parabolic nature of the motion:
+
+$$
+y(x) = x \tan(\alpha) - \left[ \frac{g}{2v_0^2 \cos^2(\alpha)} \right] x^2
+$$
+
+### III. Energetic Consistency (Work-Energy Theorem)
+To ensure physical integrity, the engine monitors the Hamiltonian of the system, verifying the **Law of Conservation of Mechanical Energy** at every discrete time step:
+
+$$
+E_{total} = \underbrace{\frac{1}{2}m(v_x^2 + v_y^2)}_{E_k} + \underbrace{mgh}_{E_p} \implies \frac{dE}{dt} = 0
+$$
+
+
+---
 
 ## 🛠️ Computational Features
 * **Adaptive Sampling**: Utilizing a dynamic `linspace` algorithm to generate up to 500 data points, ensuring a continuous curve without aliasing artifacts.
