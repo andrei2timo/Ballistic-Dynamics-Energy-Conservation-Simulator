@@ -54,4 +54,15 @@ $$
    ```
    streamlit run app.py
    ```
-   
+
+---
+
+## 🔍 Experimental Validation
+The simulator provides a comparative analysis between theoretical values and numerical results:
+* **Apex Verification**: The simulation cross-references the maximum height $H_{max}$ recorded in the data log with the analytical result $v_y = 0$.
+* **Boundary Conditions**: The flight terminates exactly at $y(t) = 0$, validating the quadratic solver's precision.
+
+## 🚧 Project Limitations
+* **Fluid Dynamics**: Does not account for the Magnus effect or atmospheric drag.
+* **Gravitational Field**: Assumes a constant $g = 9.81 \, m/s^2$ (flat-earth approximation).
+---
