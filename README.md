@@ -1,4 +1,4 @@
-# ☄️ Computational Ballistics & Thermodynamics Laboratory
+# ☄️ Ballistic Dynamics & Energy Conservation Simulator
 
 ![Python Version](https://img.shields.io/badge/python-3.10%2B-blue)
 ![Physics Engine](https://img.shields.io/badge/Engine-Kinematic_Euler-red)
