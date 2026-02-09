@@ -29,4 +29,13 @@ The simulation strictly adheres to the principles of **Classical Mechanics**. Th
 1. Clone the repository:
    ```
    git clone [https://github.com/your-repo/ballistic-lab.git](https://github.com/your-repo/ballistic-lab.git)
-         
+   ```
+2. Initialize the environment:
+   ```
+   pip install -r requirements.txt
+   ```
+3. Execute the simulation:
+   ```
+   streamlit run app.py
+   ```
+   
